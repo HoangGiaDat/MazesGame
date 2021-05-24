@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Base\DesignPattern\SingletionMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Common\Loading\LoadingController.cs" />
     <Compile Include="Assets\Scripts\Base\UI\Effect\EffectBtnScale.cs" />
+    <Compile Include="Assets\Scripts\Controller\StageMode\LayoutGridSnake.cs" />
     <Compile Include="Assets\Scripts\Singleton\CreateController.cs" />
     <Compile Include="Assets\Scripts\Base\UI\LoadMutilImage.cs" />
     <Compile Include="Assets\Scripts\Base\UI\TabBarController.cs" />
@@ -79,19 +80,23 @@
     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\Scripts\Base\UI\LayoutGrid.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
+    <Compile Include="Assets\Scripts\Controller\InGame\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Base\Controller\BehaviourController.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
     <Compile Include="Assets\Scripts\Controller\CameraController.cs" />
     <Compile Include="Assets\Scripts\Base\DesignPattern\PoolingObject.cs" />
+    <Compile Include="Assets\Scripts\Controller\StageMode\ButtonStageController.cs" />
     <Compile Include="Assets\Scripts\Common\GlobalVar.cs" />
     <Compile Include="Assets\Scripts\Common\PopUp\PopUpYesNo.cs" />
     <Compile Include="Assets\Scripts\Base\UI\LayoutVertical.cs" />
     <Compile Include="Assets\Scripts\Base\Network\ActionOnResponse.cs" />
+    <Compile Include="Assets\Scripts\Controller\StageMode\ArrowController.cs" />
     <Compile Include="Assets\Scripts\Singleton\PopUpController.cs" />
     <Compile Include="Assets\Scripts\Base\UI\LoadSingleImage.cs" />
     <Compile Include="Assets\Scripts\Base\Network\QueryParams.cs" />
     <Compile Include="Assets\Scripts\Base\UI\TabController.cs" />
     <Compile Include="Assets\Scripts\Base\DesignPattern\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Controller\InGame\TimeController.cs" />
     <Compile Include="Assets\Scripts\Base\Controller\ProcessController.cs" />
     <Compile Include="Assets\Scripts\Common\PopUp\PopUpText.cs" />
     <Compile Include="Assets\Scripts\Base\Controller\BasePopUp.cs" />
@@ -102,11 +107,8 @@
     <Compile Include="Assets\Scripts\Base\UI\Effect\EffectBtnColor.cs" />
     <Compile Include="Assets\Libraries\JSONSimple\SimpleJSON.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
-    <Compile Include="Assets\Scripts\Controller\StageMode\ArrowController.cs" />
-    <Compile Include="Assets\Scripts\Controller\StageMode\LayoutGridSnake.cs" />
-    <Compile Include="Assets\Scripts\Controller\StageMode\ButtonStageController.cs" />
-    <Compile Include="Assets\Scripts\Controller\InGame\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Controller\InGame\TimeController.cs" />
+    <Compile Include="Assets\Scripts\Maze Genarator\Cell.cs" />
+    <Compile Include="Assets\Scripts\Maze Genarator\Lines.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
