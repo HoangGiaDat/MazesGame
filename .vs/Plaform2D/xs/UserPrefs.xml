@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{E5FC9C10-BFBB-CEC4-FDDF-E88E8E59193A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NinjaController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/NinjaController.cs" Line="60" Column="10" />
+      <File FileName="Assets/Scripts/CameraController.cs" />
+      <File FileName="Assets/Scripts/KunaiController.cs" />
+      <File FileName="Assets/Scripts/UI/TestUI.cs" />
+      <File FileName="Assets/Scripts/UI/TestDrag.cs" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d6ed675b-d39c-4d2e-8f73-ac6c3ef9808d" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
