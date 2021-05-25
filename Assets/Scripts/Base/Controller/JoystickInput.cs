@@ -8,14 +8,14 @@ public class JoystickInput : MonoBehaviour
     {
         get
         {
-            return JoyStick.Instance.direction.x < -0.1f ;
+            return JoyStick.Instance.direction.x < -0.95f ;
         }
     }
     public static bool Right
     {
         get
         {
-            return JoyStick.Instance.direction.x > 0.1f;
+            return JoyStick.Instance.direction.x > 0.95f;
         }
     }
     public static bool Up
@@ -33,9 +33,6 @@ public class JoystickInput : MonoBehaviour
             return JoyStick.Instance.direction.y <= -0.9f;
         }
     }
-    public static bool Attack = false;
-    public static bool Throw = false;
-    public static bool Glide = false;
-    public static bool Slide = false;
-    public static bool Climb = false;
+    public static bool stopTimer = false;
+    
 }

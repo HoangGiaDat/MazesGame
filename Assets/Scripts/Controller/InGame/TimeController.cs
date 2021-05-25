@@ -9,12 +9,10 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     Slider slider;
     public int gameTime;
-    bool stopTimer;
     float curentTime;
 
     void Start()
     {
-        stopTimer = false;
         curentTime = gameTime;
         slider.maxValue = gameTime;
         slider.value = gameTime;
@@ -22,20 +20,23 @@ public class TimeController : MonoBehaviour
 
     void Update()
     {
-        
-        if (curentTime <= 0)
+        if (JoystickInput.stopTimer == true)
         {
-            stopTimer = true;
-        }    
-        if (stopTimer == false)
+            Debug.Log("Pause or quit game");
+            return;
+        }
+        else
         {
             curentTime = curentTime - Time.deltaTime;
             slider.value = curentTime;
-        }    
-        if (stopTimer == true)
-        {
-            Debug.Log("Pause or quit game");
-        }    
+            if (curentTime <= 0)
+            {
+                JoystickInput.stopTimer  = true;
+            }
+        }
+         
+         
+          
 
     }
 }

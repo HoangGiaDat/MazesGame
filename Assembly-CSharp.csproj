@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Singleton\SceneController.cs" />
     <Compile Include="Assets\Scripts\Base\DesignPattern\SingletionMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Common\Loading\LoadingController.cs" />
+    <Compile Include="Assets\Scripts\Maze Genarator\Cell.cs" />
     <Compile Include="Assets\Scripts\Base\UI\Effect\EffectBtnScale.cs" />
     <Compile Include="Assets\Scripts\Controller\StageMode\LayoutGridSnake.cs" />
     <Compile Include="Assets\Scripts\Singleton\CreateController.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Controller\InGame\TimeController.cs" />
     <Compile Include="Assets\Scripts\Base\Controller\ProcessController.cs" />
     <Compile Include="Assets\Scripts\Common\PopUp\PopUpText.cs" />
+    <Compile Include="Assets\Scripts\Maze Genarator\Lines.cs" />
     <Compile Include="Assets\Scripts\Base\Controller\BasePopUp.cs" />
     <Compile Include="Assets\Scripts\Base\DesignPattern\Observer.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
@@ -107,8 +109,10 @@
     <Compile Include="Assets\Scripts\Base\UI\Effect\EffectBtnColor.cs" />
     <Compile Include="Assets\Libraries\JSONSimple\SimpleJSON.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
-    <Compile Include="Assets\Scripts\Maze Genarator\Cell.cs" />
-    <Compile Include="Assets\Scripts\Maze Genarator\Lines.cs" />
+    <Compile Include="Assets\Scripts\Controller\InGame\BtnUpController.cs" />
+    <Compile Include="Assets\Scripts\Controller\InGame\BtnDownController.cs" />
+    <Compile Include="Assets\Scripts\Controller\InGame\BtnLeftController.cs" />
+    <Compile Include="Assets\Scripts\Controller\InGame\BtnRightController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

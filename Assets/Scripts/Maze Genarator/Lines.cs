@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Lines : MonoBehaviour {
-
+	public float timeMove;
+	float currentTimeMove;
+	bool isMove;
 	public  int canvasWidth;
 	public   float cellWidth;
 	public  int canvasHight;
@@ -81,6 +83,7 @@ public class Lines : MonoBehaviour {
 	Queue<index> ShortestPath = new Queue<index>();
 	Queue <index> AStarShortestpath = new Queue<index>();
 	void Awake(){
+		currentTimeMove = timeMove;
 		QualitySettings.vSyncCount = 0;
 		cols = (int) (canvasWidth / cellWidth);
 		rows = (int) (canvasHight / cellHight);
@@ -102,12 +105,13 @@ public class Lines : MonoBehaviour {
 		StartofDrawingDijkstra=new Vector3 (((canvasWidth / 2) - ((begain_col-1) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((begain_row-1) * this.cellHight)) - (cellHight / 2), 0.0f);
 		brain.transform.localScale = new Vector3 (cellWidth, cellHight, 0.0f);
 		brain.transform.position=new Vector3 (((canvasWidth / 2) - ((target_col-1) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((target_row-1) * this.cellHight)) - (cellHight / 2), 0.0f);
-		Zombie.transform.localScale = new Vector3 (cellWidth, cellHight, 0.0f);
+		//Zombie.transform.localScale = new Vector3 (cellWidth, cellHight, 0.0f);
 		Zombie.transform.position = new Vector3(((canvasWidth / 2) - ((begain_col-1) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((begain_row-1) * this.cellHight)) - (cellHight / 2), 0.0f);
 		brain.SetActive (false);
 		Zombie.SetActive (false);
 	}
 	void Start () {
+		JoystickInput.stopTimer = true;
 		apply = false;
 		menu = false;
         playerMode = false;
@@ -158,38 +162,54 @@ public class Lines : MonoBehaviour {
                 StartCoroutine (Win());
             }
             Vector3 StartPlayerMode = new Vector3(((canvasWidth / 2) - ((playerModeRow ) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((playerModeColumn ) * this.cellHight)) - (cellHight / 2), 0.0f);
-			
-			if (JoystickInput.Right) //if (Input.GetKeyDown(KeyCode.RightArrow))
+			if (isMove)
+            {
+				currentTimeMove -= Time.deltaTime;
+				if (currentTimeMove <= 0)
+                {
+					isMove = false;
+					currentTimeMove = timeMove;
+                }
+
+            }
+			if (JoystickInput.Right && !isMove) 
 			{
-               
-                if (!grids[playerModeColumn, playerModeRow].GetRight())
+				isMove = true;
+				Zombie.transform.rotation = Quaternion.Euler(0, 0, -90);
+				if (!grids[playerModeColumn, playerModeRow].GetRight())
                 {
                     playerModeRow--;
                     Vector3 EndPlayerMode = new Vector3(((canvasWidth / 2) - ((playerModeRow ) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((playerModeColumn ) * this.cellHight)) - (cellHight / 2), 0.0f);
                     DrawLine(StartPlayerMode, EndPlayerMode, Color.cyan, overLine++);
                 }
             }
-            else if (JoystickInput.Left) //(Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (JoystickInput.Left && !isMove)
             {
-                if (!grids[playerModeColumn, playerModeRow].GetLeft())
+				isMove = true;
+				Zombie.transform.rotation = Quaternion.Euler(0, 0, 90);
+				if (!grids[playerModeColumn, playerModeRow].GetLeft())
                 {
                     playerModeRow++;
                     Vector3 EndPlayerMode = new Vector3(((canvasWidth / 2) - ((playerModeRow ) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((playerModeColumn ) * this.cellHight)) - (cellHight / 2), 0.0f);
                     DrawLine(StartPlayerMode, EndPlayerMode, Color.cyan, overLine++);
                 }
             }
-            else if (JoystickInput.Up) //(Input.GetKeyDown(KeyCode.UpArrow))
+            else if (JoystickInput.Up && !isMove)
 			{
-                if (!grids[playerModeColumn, playerModeRow].GetTop())
+				isMove = true;
+				Zombie.transform.rotation = Quaternion.Euler(0, 0, 0);
+				if (!grids[playerModeColumn, playerModeRow].GetTop())
                 {
                     playerModeColumn--;
                     Vector3 EndPlayerMode = new Vector3(((canvasWidth / 2) - ((playerModeRow ) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((playerModeColumn ) * this.cellHight)) - (cellHight / 2), 0.0f);
                     DrawLine(StartPlayerMode, EndPlayerMode, Color.cyan, overLine++);
                 }
             }
-            else if (JoystickInput.Down) //(Input.GetKeyDown(KeyCode.DownArrow))
+            else if (JoystickInput.Down && !isMove)
 			{
-                if (!grids[playerModeColumn, playerModeRow].GetBottom())
+				isMove = true;
+				Zombie.transform.rotation = Quaternion.Euler(0, 0, 180);
+				if (!grids[playerModeColumn, playerModeRow].GetBottom())
                 {
                     playerModeColumn++;
                     Vector3 EndPlayerMode = new Vector3(((canvasWidth / 2) - ((playerModeRow ) * cellWidth)) - (cellWidth / 2), ((this.canvasHight / 2) - ((playerModeColumn ) * this.cellHight)) - (cellHight / 2), 0.0f);
@@ -768,6 +788,7 @@ public class Lines : MonoBehaviour {
 	}
     public void  setPlayerMode(bool x)
     {
+		JoystickInput.stopTimer = !x;
         playerMode = x;
         Stop.SetActive(x);
         playerModeRow = begain_row-1  ;
